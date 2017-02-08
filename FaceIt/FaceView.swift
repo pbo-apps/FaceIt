@@ -8,13 +8,20 @@
 
 import UIKit
 
+@IBDesignable
 class FaceView: UIView {
 
+    @IBInspectable
     var scale: CGFloat = 0.90
+    @IBInspectable
     var mouthCurvature: Double = 0.50 // 1 full smile, -1 full frown
+    @IBInspectable
     var eyesOpen: Bool = false
+    @IBInspectable
     var eyeBrowTilt: Double = 0.5 // -1 full furrow, 1 fully relaxed
+    @IBInspectable
     var color: UIColor = UIColor.red
+    @IBInspectable
     var lineWidth: CGFloat = 5.0
     
     private var skullRadius: CGFloat {
