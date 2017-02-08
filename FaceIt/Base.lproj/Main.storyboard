@@ -52,6 +52,9 @@
                             <constraint firstItem="kTi-ay-Jn1" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="sOh-TF-xS0"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="faceView" destination="kTi-ay-Jn1" id="suw-4r-Q2U"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
