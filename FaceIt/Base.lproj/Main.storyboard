@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="23m-2J-BuQ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="c8k-OA-ElG">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -9,7 +9,25 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Emotions View Controller-->
+        <!--Tab Bar Controller-->
+        <scene sceneID="7bZ-qG-5kv">
+            <objects>
+                <tabBarController id="c8k-OA-ElG" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="fA7-ut-ZlE">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="23m-2J-BuQ" kind="relationship" relationship="viewControllers" id="tOR-Cr-1S5"/>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="xVs-a5-ocZ"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RHP-tR-DDY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1857" y="36"/>
+        </scene>
+        <!--Item-->
         <scene sceneID="qvc-Ez-WOQ">
             <objects>
                 <viewController id="23m-2J-BuQ" customClass="EmotionsViewController" customModule="FaceIt" customModuleProvider="target" sceneMemberID="viewController">
@@ -53,12 +71,13 @@
                             <constraint firstItem="zjb-es-ibl" firstAttribute="centerX" secondItem="efq-Sr-v6e" secondAttribute="centerX" id="e1f-TG-SOT"/>
                         </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="RQC-85-MMb"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UXW-Db-IQg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-762.39999999999998" y="35.532233883058474"/>
+            <point key="canvasLocation" x="-668" y="-487"/>
         </scene>
-        <!--Face View Controller-->
+        <!--Item-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="FaceViewController" customModule="FaceIt" customModuleProvider="target" sceneMemberID="viewController">
@@ -71,7 +90,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="kTi-ay-Jn1" customClass="FaceView" customModule="FaceIt" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <gestureRecognizers/>
                                 <userDefinedRuntimeAttributes>
@@ -105,6 +124,7 @@
                             <constraint firstItem="kTi-ay-Jn1" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="sOh-TF-xS0"/>
                         </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="LFq-g6-xUP"/>
                     <connections>
                         <outlet property="faceView" destination="kTi-ay-Jn1" id="suw-4r-Q2U"/>
                     </connections>
@@ -116,7 +136,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="162" y="36"/>
+            <point key="canvasLocation" x="-668" y="350"/>
         </scene>
     </scenes>
 </document>
