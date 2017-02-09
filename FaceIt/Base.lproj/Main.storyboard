@@ -22,7 +22,7 @@
             </objects>
             <point key="canvasLocation" x="-1860" y="-87"/>
         </scene>
-        <!--Emotions View Controller-->
+        <!--Emotions-->
         <scene sceneID="qvc-Ez-WOQ">
             <objects>
                 <viewController id="23m-2J-BuQ" customClass="EmotionsViewController" customModule="FaceIt" customModuleProvider="target" sceneMemberID="viewController">
@@ -78,7 +78,7 @@
                             <constraint firstItem="zjb-es-ibl" firstAttribute="centerX" secondItem="efq-Sr-v6e" secondAttribute="centerX" id="e1f-TG-SOT"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="0As-eo-Aww"/>
+                    <navigationItem key="navigationItem" title="Emotions" id="0As-eo-Aww"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UXW-Db-IQg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
