@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="c8k-OA-ElG">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="ue8-fH-NnM">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -9,23 +9,18 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Tab Bar Controller-->
-        <scene sceneID="7bZ-qG-5kv">
+        <!--Split View Controller-->
+        <scene sceneID="H0a-2J-d9z">
             <objects>
-                <tabBarController id="c8k-OA-ElG" sceneMemberID="viewController">
-                    <tabBar key="tabBar" contentMode="scaleToFill" id="fA7-ut-ZlE">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                    </tabBar>
+                <splitViewController id="ue8-fH-NnM" sceneMemberID="viewController">
                     <connections>
-                        <segue destination="23m-2J-BuQ" kind="relationship" relationship="viewControllers" id="tOR-Cr-1S5"/>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="xVs-a5-ocZ"/>
+                        <segue destination="23m-2J-BuQ" kind="relationship" relationship="masterViewController" id="VVq-yZ-N8z"/>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="detailViewController" id="0FD-Mf-Jdv"/>
                     </connections>
-                </tabBarController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="RHP-tR-DDY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                </splitViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xbA-Hj-xXh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1857" y="36"/>
+            <point key="canvasLocation" x="-1860" y="-87"/>
         </scene>
         <!--Item-->
         <scene sceneID="qvc-Ez-WOQ">
