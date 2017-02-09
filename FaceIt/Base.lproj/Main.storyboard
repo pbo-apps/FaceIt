@@ -35,27 +35,39 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="zjb-es-ibl">
-                                <rect key="frame" x="112" y="245" width="151" height="176"/>
+                                <rect key="frame" x="115" y="245" width="145" height="176"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xB6-AB-W5t">
-                                        <rect key="frame" x="0.0" y="0.0" width="151" height="44"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="145" height="44"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                         <state key="normal" title="Angry"/>
+                                        <connections>
+                                            <segue destination="BYZ-38-t0r" kind="showDetail" identifier="angry" id="4Hi-fe-zMr"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dwh-I7-0dO">
-                                        <rect key="frame" x="0.0" y="44" width="151" height="44"/>
+                                        <rect key="frame" x="0.0" y="44" width="145" height="44"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                         <state key="normal" title="Happy"/>
+                                        <connections>
+                                            <segue destination="BYZ-38-t0r" kind="showDetail" identifier="happy" id="4as-pF-rHr"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jvL-ZJ-wJ3">
-                                        <rect key="frame" x="0.0" y="88" width="151" height="44"/>
+                                        <rect key="frame" x="0.0" y="88" width="145" height="44"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                         <state key="normal" title="Worried"/>
+                                        <connections>
+                                            <segue destination="BYZ-38-t0r" kind="showDetail" identifier="worried" id="gje-Ci-R6p"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B2V-LG-wtl">
-                                        <rect key="frame" x="0.0" y="132" width="151" height="44"/>
+                                        <rect key="frame" x="0.0" y="132" width="145" height="44"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="26"/>
-                                        <state key="normal" title="Mischievious"/>
+                                        <state key="normal" title="Mischievous"/>
+                                        <connections>
+                                            <segue destination="BYZ-38-t0r" kind="showDetail" identifier="mischievous" id="S5c-qC-7fj"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -134,4 +146,7 @@
             <point key="canvasLocation" x="-668" y="350"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="S5c-qC-7fj"/>
+    </inferredMetricsTieBreakers>
 </document>
