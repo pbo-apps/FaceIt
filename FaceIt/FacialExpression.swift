@@ -34,16 +34,16 @@ struct FacialExpression {
     
     enum Mouth: Int {
         case Frown
-        case Smirk
         case Neutral
-        case Grin
+        case Smirk
         case Smile
+        case Grin
         
         func sadderMouth() -> Mouth {
             return Mouth(rawValue: rawValue - 1) ?? .Frown
         }
         func happierMouth() -> Mouth {
-            return Mouth(rawValue: rawValue + 1) ?? .Smile
+            return Mouth(rawValue: rawValue + 1) ?? .Grin
         }
     }
 }
