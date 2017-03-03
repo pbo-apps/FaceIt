@@ -16,13 +16,13 @@ class FaceView: UIView {
     @IBInspectable // 1 full smile, -1 full frown
     var mouthCurvature: Double = 0.50 { didSet { setNeedsDisplay() } }
     @IBInspectable
-    var eyesOpen: Bool = false { didSet { setNeedsDisplay() } }
+    var eyesOpen: Bool = false { didSet { leftEye.eyesOpen = eyesOpen; rightEye.eyesOpen = eyesOpen } }
     @IBInspectable // -1 full furrow, 1 fully relaxed
     var eyeBrowTilt: Double = 0.5 { didSet { setNeedsDisplay() } }
     @IBInspectable
-    var color: UIColor = UIColor.red { didSet { setNeedsDisplay() } }
+    var color: UIColor = UIColor.red { didSet { setNeedsDisplay(); leftEye.color = color; rightEye.color = color } }
     @IBInspectable
-    var lineWidth: CGFloat = 5.0 { didSet { setNeedsDisplay() } }
+    var lineWidth: CGFloat = 5.0 { didSet { setNeedsDisplay(); leftEye.lineWidth = lineWidth; rightEye.lineWidth = lineWidth } }
     
     func changeScale(_ recognizer: UIPinchGestureRecognizer) {
         switch recognizer.state {
@@ -67,19 +67,19 @@ class FaceView: UIView {
         return path
     }
     
-    private func pathForEye(_ eye: Eye) -> UIBezierPath {
-        let eyeRadius = skullRadius / Ratios.SkullRadiusToEyeRadius
-        let eyeCenter = getEyeCenter(eye)
-        if eyesOpen {
-            return pathForCircleCenteredAt(midPoint: eyeCenter, withRadius: eyeRadius)
-        } else {
-            let path = UIBezierPath()
-            path.move(to: CGPoint(x: eyeCenter.x - eyeRadius, y: eyeCenter.y))
-            path.addLine(to: CGPoint(x: eyeCenter.x + eyeRadius, y: eyeCenter.y))
-            path.lineWidth = lineWidth
-            return path
-        }
-    }
+//    private func pathForEye(_ eye: Eye) -> UIBezierPath {
+//        let eyeRadius = skullRadius / Ratios.SkullRadiusToEyeRadius
+//        let eyeCenter = getEyeCenter(eye)
+//        if eyesOpen {
+//            return pathForCircleCenteredAt(midPoint: eyeCenter, withRadius: eyeRadius)
+//        } else {
+//            let path = UIBezierPath()
+//            path.move(to: CGPoint(x: eyeCenter.x - eyeRadius, y: eyeCenter.y))
+//            path.addLine(to: CGPoint(x: eyeCenter.x + eyeRadius, y: eyeCenter.y))
+//            path.lineWidth = lineWidth
+//            return path
+//        }
+//    }
     
     private func getEyeCenter(_ eye: Eye) -> CGPoint {
         let eyeOffset = skullRadius / Ratios.SkullRadiusToEyeOffset
@@ -92,6 +92,33 @@ class FaceView: UIView {
             eyeCenter.x += eyeOffset
         }
         return eyeCenter
+    }
+    
+    // Lazy here because we're accessing a method on ourself during initialisation
+    // The lazy keyword means we won't initialise until someone asks for the var, and no-one
+    // can ask for it until initialisation is complete so we're all gravy
+    private lazy var leftEye: EyeView = self.createEye()
+    private lazy var rightEye: EyeView = self.createEye()
+    
+    private func createEye() -> EyeView {
+        let eye = EyeView()
+        eye.isOpaque = false
+        eye.color = color
+        eye.lineWidth = lineWidth
+        self.addSubview(eye)
+        return eye
+    }
+    
+    private func positionEye(eye: EyeView, center: CGPoint) {
+        let size = skullRadius / Ratios.SkullRadiusToEyeRadius * 2
+        eye.frame = CGRect(origin: CGPoint.zero, size: CGSize(width: size, height: size))
+        eye.center = center
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        positionEye(eye: leftEye, center: getEyeCenter(.Left))
+        positionEye(eye: rightEye, center: getEyeCenter(.Right))
     }
     
     private func pathForMouth() -> UIBezierPath {
@@ -137,8 +164,8 @@ class FaceView: UIView {
     override func draw(_ rect: CGRect) {
         color.set()
         pathForCircleCenteredAt(midPoint: skullCenter, withRadius: skullRadius).stroke()
-        pathForEye(.Left).stroke()
-        pathForEye(.Right).stroke()
+        //pathForEye(.Left).stroke()
+        //pathForEye(.Right).stroke()
         pathForMouth().stroke()
         pathForBrow(.Left).stroke()
         pathForBrow(.Right).stroke()
