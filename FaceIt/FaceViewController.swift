@@ -46,6 +46,33 @@ class FaceViewController: UIViewController {
         }
     }
     
+    private struct Animation {
+        static let shakeAngle = CGFloat(M_PI / 6)
+        static let shakeDuration = 0.5
+    }
+    
+    @IBAction func headShake(_ sender: UITapGestureRecognizer) {
+        rotateHead(by: [Animation.shakeAngle, Animation.shakeAngle * -2, Animation.shakeAngle])
+    }
+    
+    private func rotateHead(by angles: [CGFloat]) {
+        if angles.isEmpty {
+            return
+        }
+        UIView.animate(
+            withDuration: Animation.shakeDuration,
+            animations: {
+                self.faceView.transform = self.faceView.transform.rotated(by: angles.first!)
+            },
+            completion: { finished in
+                if finished {
+                    let nextAngles = angles.dropFirst()
+                    self.rotateHead(by: Array(nextAngles))
+                }
+            }
+        )
+    }
+    
     func increaseHappiness() {
         expression.mouth = expression.mouth.happierMouth()
     }
